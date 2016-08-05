@@ -16,7 +16,7 @@ public class LineGraph
 {
     public Intent getIntent(Context context)
     {
-
+        // Data points
         // Data points
 
         int[] x = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};// x values
