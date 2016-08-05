@@ -22,25 +22,20 @@ public class LineGraph
 
         int[] x = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};// x values
         int[] y = {30, 34, 45, 57, 77, 89, 100, 111, 123, 145}; // y values
-        int[] y2 = {100, 200, 300, 400, 500, 600, 700, 1000}; // y2 values
+        int[] y2 = {100, 200, 300, 400, 500, 600, 700, 800, 900, 1000}; // y2 values
+        // a number of x and y must be matched
 
 
         // conversion to object
 
         TimeSeries series1 = new TimeSeries("Line 1"); // create line
+        TimeSeries series2 = new TimeSeries("Line 2");
         // Using for TimeSeries
         for (int i = 0 ; i<x.length; i++)
         {
             series1.add(x[i], y[i]);
-        }
-
-        TimeSeries series2 = new TimeSeries("Line 2");
-        for (int i = 0 ; i<x.length; i++)
-        {
             series2.add(x[i], y2[i]);
-
         }
-
 
         // add to dataseries
 
@@ -50,14 +45,19 @@ public class LineGraph
 
         //dataset.addSeries(series2); -> add more than 2 line graph
 
-        XYMultipleSeriesRenderer mRenderer = new XYMultipleSeriesRenderer();
         XYSeriesRenderer renderer1 = new XYSeriesRenderer();// customise to line properties
         renderer1.setColor(Color.RED);
-        mRenderer.addSeriesRenderer(renderer1);
 
         XYSeriesRenderer renderer2 = new XYSeriesRenderer();
         renderer2.setColor(Color.BLUE);
+
+        XYMultipleSeriesRenderer mRenderer = new XYMultipleSeriesRenderer();
+
+        mRenderer.addSeriesRenderer(renderer1);
         mRenderer.addSeriesRenderer(renderer2);
+
+
+
 
         // To specify, 1 series is matched 1 Renderer
         // for example, XYSeriesRenderer is matched dataset.addSeries(series)
@@ -68,6 +68,8 @@ public class LineGraph
         // ChartFactory.getLineChartIntent ???
         //org.achartengine.GraphicalActivity
         return intent;
+
+
     }
 
 
