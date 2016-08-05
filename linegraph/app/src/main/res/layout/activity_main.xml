@@ -13,7 +13,7 @@
         android:onClick="lineGraphHandler"
         android:layout_width="match_parent"
         android:text="Line Graph" />
-    
+
 
 
 </LinearLayout>
