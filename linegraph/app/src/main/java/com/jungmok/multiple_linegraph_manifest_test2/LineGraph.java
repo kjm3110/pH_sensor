@@ -3,6 +3,9 @@ package com.jungmok.multiple_linegraph_manifest_test2;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.Paint;
+import android.view.View;
+import android.widget.LinearLayout;
 
 import org.achartengine.ChartFactory;
 import org.achartengine.model.TimeSeries;
@@ -51,16 +54,33 @@ public class LineGraph
         XYSeriesRenderer renderer2 = new XYSeriesRenderer();
         renderer2.setColor(Color.BLUE);
 
-        XYMultipleSeriesRenderer mRenderer = new XYMultipleSeriesRenderer();
+        XYMultipleSeriesRenderer mRenderer = new XYMultipleSeriesRenderer();  // 화면에 뿌려주기 위해서 mRenderer로 지정해준다
+        mRenderer.setChartTitle("perfect pH sensor");
+        mRenderer.setYTitle("VOUT(V)");
+        mRenderer.setXTitle("Time(sec)");
+        mRenderer.setAxisTitleTextSize(80);
+        mRenderer.setChartTitleTextSize(20);
+        mRenderer.setXLabelsAlign(Paint.Align.CENTER);
+        mRenderer.setYLabelsAlign(Paint.Align.CENTER);
+        mRenderer.setLabelsTextSize(50);
+        mRenderer.setMargins(new int[]{200,200,0,200});
+        mRenderer.setZoomButtonsVisible(true);
 
         mRenderer.addSeriesRenderer(renderer1);
         mRenderer.addSeriesRenderer(renderer2);
+
+        mRenderer.setZoomEnabled(true);
+        mRenderer.setExternalZoomEnabled(true);
+        mRenderer.setApplyBackgroundColor(true);
 
 
 
 
         // To specify, 1 series is matched 1 Renderer
         // for example, XYSeriesRenderer is matched dataset.addSeries(series)
+
+
+
 
 
 
